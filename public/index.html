@@ -17,6 +17,11 @@
         client.on('disconnect', function() {
             console.log('Perdimos conexión con el servidor');
         });
+
+        client.emit('mensaje', {nombre: 'Juan', mensaje: 'Hola Mundo'});
+        client.on('mensaje', function(data) {
+            console.log("escuchando", data);
+        });
     </script>
 </body>
 </html>
