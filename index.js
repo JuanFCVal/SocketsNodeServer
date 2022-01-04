@@ -8,17 +8,9 @@ const app = express();
 
 //Node server 
 const server = require('http').createServer(app);
-const io = require('socket.io')(server);
+module.exports.io = require('socket.io')(server);
 
-//Sockets messagges
-io.on('connection', client => {
-  console.log('Cliente conectado...');
-  client.on('disconnect', () => { console.log('Cliente desconectado') });
-    client.on('mensaje', msg => {
-      console.log('Mensaje: ', msg);
-      io.emit('mensaje', {admin: "Nuevo mensaje"});
-    })
-});
+require('./sockets/socket');
 
 
 
