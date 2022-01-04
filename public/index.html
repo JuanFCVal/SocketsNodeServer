@@ -18,9 +18,9 @@
             console.log('Perdimos conexión con el servidor');
         });
 
-        client.emit('mensaje', {nombre: 'Juan', mensaje: 'Hola Mundo'});
-        client.on('mensaje', function(data) {
-            console.log("escuchando", data);
+
+        client.on('nuevo-mensaje', function(data) {
+            console.log('nuevo mensaje', data);
         });
     </script>
 </body>
